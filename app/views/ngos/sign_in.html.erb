@@ -1,0 +1,13 @@
+<%= form_tag({controller: "ngos", action: "verify_sign_in"}, method: "post") %>
+
+<label>Name: </label>
+<%= text_field_tag :name %>
+
+<br/><br/>
+
+<label>Password: </label>
+<%= text_field_tag :password, "", {type: "password"} %>
+
+<br/><br/>
+
+<%= button_tag :Submit %>
