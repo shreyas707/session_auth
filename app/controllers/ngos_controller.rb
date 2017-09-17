@@ -62,7 +62,7 @@ class NgosController < ApplicationController
   end
 
   def create_students
-    binding.pry
+    # binding.pry
     if session[:current_ngo].present?
       render ngos_create_students_path
     else
@@ -76,10 +76,10 @@ class NgosController < ApplicationController
     
     if @ngo.present?
       if @ngo.password == params[:password]
-        session[:current_ngo] = @ngo 
-        session[:c_n] = @ngo
-        binding.pry
-        redirect_to ngos_create_students_path#, notice: "Sign in successful."
+        session[:current_ngo] = @ngo
+        # binding.pry
+        # redirect_to ngos_create_students_path#, notice: "Sign in successful."
+        redirect_to new_user_registration_path
       else
         redirect_to :back#, notice: "Username or password entered is wrong. Please try again."
       end
