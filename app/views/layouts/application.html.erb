@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-  <% if session[:current_ngo].present? && session[:current_ngo] != {} %>
+  <% if session[:ngo_id].present? %>
   	<%= link_to "Sign Out - NGO", ngos_sign_out_path %>
   <% else %>
   	<%= link_to "Sign In - NGO", ngos_sign_in_path %>
@@ -18,13 +18,14 @@
     <%= link_to "Edit Account - Devise", edit_user_registration_path %>
   	<%= link_to "Logout - Devise", destroy_user_session_path, method: :delete %>
   <% end %>
-  <%= link_to "Create Student", ngos_create_students_path %>
+  <%= link_to "Add Student", ngos_add_students_path %>
   <%= link_to "All NGOs", ngos_path %>
   <br/><br/>
 
 </head>
 <body>
 
+<p id="alert"><%= alert %></p>
 <%= yield %>
 
 </body>

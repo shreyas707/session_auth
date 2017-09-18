@@ -62,12 +62,11 @@ class NgosController < ApplicationController
     end
   end
 
-  def create_students
-    # binding.pry
-    if session[:current_ngo].present?
-      render ngos_create_students_path
+  def add_students
+    if session[:ngo_id].present?
+      render ngos_add_students_path
     else
-      redirect_to '/'
+      redirect_to '/', alert: "Please login with NGO name and password to access this page."
     end
   end
 
@@ -77,22 +76,20 @@ class NgosController < ApplicationController
     
     if @ngo.present?
       if @ngo.authenticate(params[:password])
-        session[:current_ngo] = @ngo
-        # binding.pry
-        # redirect_to ngos_create_students_path#, flash: "Sign in successful."
-        redirect_to new_user_registration_path
+        session[:ngo_id] = @ngo.id
+        redirect_to new_user_registration_path, alert: "Signed in successfully."
       else
-        redirect_to :back#, notice: "Username or password entered is wrong. Please try again."
+        redirect_to :back, alert: "Password entered is wrong. Please try again."
       end
     else
-      redirect_to :back#, notice: "NGO doesn't exist."
+      redirect_to :back, alert: "NGO doesn't exist."
     end
 
   end
 
   def sign_out
-    session[:current_ngo] = {}
-    redirect_to '/'
+    session.delete("ngo_id")
+    redirect_to '/', alert: "Signed out successfully."
   end
 
   private

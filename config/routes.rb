@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  get 'ngos/create_students'
+  get 'ngos/add_students'
   get 'ngos/sign_in'
   get 'ngos/sign_out'
   post 'ngos/verify_sign_in'
