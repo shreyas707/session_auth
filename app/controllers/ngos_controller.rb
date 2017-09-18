@@ -78,7 +78,7 @@ class NgosController < ApplicationController
       if @ngo.password == params[:password]
         session[:current_ngo] = @ngo
         # binding.pry
-        # redirect_to ngos_create_students_path#, notice: "Sign in successful."
+        # redirect_to ngos_create_students_path#, flash: "Sign in successful."
         redirect_to new_user_registration_path
       else
         redirect_to :back#, notice: "Username or password entered is wrong. Please try again."
@@ -87,6 +87,11 @@ class NgosController < ApplicationController
       redirect_to :back#, notice: "NGO doesn't exist."
     end
 
+  end
+
+  def sign_out
+    session[:current_ngo] = {}
+    redirect_to '/'
   end
 
   private
