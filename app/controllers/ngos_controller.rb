@@ -1,10 +1,11 @@
 class NgosController < ApplicationController
   before_action :set_ngo, only: [:show, :edit, :update, :destroy]
-
+  skip_before_filter
   # GET /ngos
   # GET /ngos.json
   def index
     @ngos = Ngo.all
+    # reset_session
   end
 
   # GET /ngos/1
