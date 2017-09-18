@@ -76,7 +76,7 @@ class NgosController < ApplicationController
     @ngo = Ngo.find_by(name: params[:name])
     
     if @ngo.present?
-      if @ngo.password == params[:password]
+      if @ngo.authenticate(params[:password])
         session[:current_ngo] = @ngo
         # binding.pry
         # redirect_to ngos_create_students_path#, flash: "Sign in successful."
