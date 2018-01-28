@@ -1,28 +1,12 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<b>Session Auth</b>
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Session Auth is a custom authentication system which uses bcrypt hashing function to store passwords.
+
+Follow the steps below to use the application:
+
+1. Make sure Ruby on Rails is installed on your computer.
+2. Through terminal/cmd, navigate to the project's folder and type <b>bundle install</b>.
+3. Next run <b>rake db:migrate</b>.
+4. Type <b>rails server</b>.
+5. On your web browser (preferably Chrome or FireFox), type localhost:3000 and hit enter.

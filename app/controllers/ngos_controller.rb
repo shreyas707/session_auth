@@ -77,6 +77,7 @@ class NgosController < ApplicationController
     if @ngo.present?
       if @ngo.authenticate(params[:password])
         session[:ngo_id] = @ngo.id
+        binding.pry
         redirect_to new_user_registration_path, alert: "Signed in successfully."
       else
         redirect_to :back, alert: "Password entered is wrong. Please try again."

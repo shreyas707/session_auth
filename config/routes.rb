@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   
   get 'ngos/add_students'
   get 'ngos/sign_in'
-  get 'ngos/sign_out'
   post 'ngos/verify_sign_in'
+  get 'ngos/sign_out'
 
   resources :ngos
 
